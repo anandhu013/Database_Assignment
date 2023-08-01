@@ -9,6 +9,7 @@ constraint "PK_3c2" primary key ("id"));
 
 
 create table product_detail(
+"id" uuid not null default uuid_generate_v4(),
 "sku" character varying not null,
 "name" character varying not null,
 "description" character varying not null,
@@ -29,7 +30,7 @@ create table order_detail( "user_id" uuid,
 "address_id" uuid,
 "id" uuid);
 
-create table order_product ("order_id" character varying not null,"product_id" character varying not null,"count" integer not null);
+create table order_product ("order_id" uuid not null,"product_id" uuid not null,"count" integer not null);
 
 
 alter table order_product add column "price" integer;
@@ -58,7 +59,7 @@ VALUES('9a920514-e045-475e-b31e-babafdab6492', '7bc63f33-53de-48c9-9b1e-2c901171
 
 INSERT INTO public.order_product
 (order_id, product_id, count, price)
-VALUES('58d030fb-c09b-4cae-89a2-c7f5aeb4ba84', 'prod1', 2, 32);
+VALUES('58d030fb-c09b-4cae-89a2-c7f5aeb4ba84', '98f4e1f7-4a83-443c-9853-0fd9786d23fd', 2, 32);
 
 INSERT INTO public.order_detail
 (user_id, address_id,id)
@@ -66,11 +67,11 @@ VALUES('afd2b164-6f4d-4ea4-8a95-5506b0b450d7', '58671e4d-e4b6-480b-8537-42152e1c
 
 INSERT INTO public.order_product
 (order_id, product_id, count, price)
-VALUES('116e739a-21de-409c-8d49-e119fd9b5472', 'prod2', 2, 40);
+VALUES('116e739a-21de-409c-8d49-e119fd9b5472', '4b3954d8-5f11-44e3-b338-1c7fff6fd153', 2, 40);
 
 INSERT INTO public.order_product
 (order_id, product_id, count, price)
-VALUES('116e739a-21de-409c-8d49-e119fd9b5472', 'prod1', 1, 32);
+VALUES('116e739a-21de-409c-8d49-e119fd9b5472', '98f4e1f7-4a83-443c-9853-0fd9786d23fd', 1, 32);
 
 
 
