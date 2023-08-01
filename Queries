@@ -25,9 +25,9 @@ create table address_detail(
 constraint "PK_addr234" primary key("id")
 );
 
-create table order_detail( "ordered_user_id" uuid,
-"order_address_id" uuid,
-"order_id" character varying);
+create table order_detail( "user_id" uuid,
+"address_id" uuid,
+"id" uuid);
 
 create table order_product ("order_id" character varying not null,"product_id" character varying not null,"count" integer not null);
 
@@ -53,24 +53,24 @@ VALUES('prod1', 'Pears', 'Bathinf Soap', 32, 'C03'),('prod2', 'Oreo', 'Cream Bis
 
 
 INSERT INTO public.order_detail
-(ordered_user_id, order_address_id, order_id)
-VALUES('9a920514-e045-475e-b31e-babafdab6492', '7bc63f33-53de-48c9-9b1e-2c9011713597', 'ord1');
+(user_id, address_id, id)
+VALUES('9a920514-e045-475e-b31e-babafdab6492', '7bc63f33-53de-48c9-9b1e-2c9011713597', '58d030fb-c09b-4cae-89a2-c7f5aeb4ba84');
 
 INSERT INTO public.order_product
 (order_id, product_id, count, price)
-VALUES('ord1', 'prod1', 2, 32);
+VALUES('58d030fb-c09b-4cae-89a2-c7f5aeb4ba84', 'prod1', 2, 32);
 
 INSERT INTO public.order_detail
-(ordered_user_id, order_address_id, order_id)
-VALUES('afd2b164-6f4d-4ea4-8a95-5506b0b450d7', '58671e4d-e4b6-480b-8537-42152e1cbaf9', 'ord2');
+(user_id, address_id,id)
+VALUES('afd2b164-6f4d-4ea4-8a95-5506b0b450d7', '58671e4d-e4b6-480b-8537-42152e1cbaf9', '116e739a-21de-409c-8d49-e119fd9b5472');
 
 INSERT INTO public.order_product
 (order_id, product_id, count, price)
-VALUES('ord2', 'prod2', 2, 40);
+VALUES('116e739a-21de-409c-8d49-e119fd9b5472', 'prod2', 2, 40);
 
 INSERT INTO public.order_product
 (order_id, product_id, count, price)
-VALUES('ord2', 'prod1', 1, 32);
+VALUES('116e739a-21de-409c-8d49-e119fd9b5472', 'prod1', 1, 32);
 
 
 
