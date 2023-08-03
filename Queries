@@ -76,4 +76,4 @@ VALUES('116e739a-21de-409c-8d49-e119fd9b5472', '98f4e1f7-4a83-443c-9853-0fd9786d
 
 
 In Product_detail table product name can be a good index whichc can improve the efficiencies .
-In order_detail table , an index on order_user_id can be useful to group orders by a particular user .
+In order_detail table , an index on user_id can be useful to group orders by a particular user .
